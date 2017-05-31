@@ -1,0 +1,17 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-slurm-client</name>
+ <summary>ohpc-slurm-client</summary>
+ <description>OpenHPC client packages for SLURM</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="slurm-ohpc"/>
+   <rpm:entry name="slurm-munge-ohpc"/>
+   <rpm:entry name="slurm-plugins-ohpc"/>
+   <rpm:entry name="slurm-sjobexit-ohpc"/>
+   <rpm:entry name="slurm-pam_slurm-ohpc"/>
+   <rpm:entry name="munge-ohpc"/>
+ </rpm:requires>
+</pattern>
+

@@ -1,0 +1,13 @@
+<project name="NonFree:PXSE:2017">
+  <title/>
+  <description/>
+  <person userid="Admin" role="maintainer"/>
+  <repository name="SLE_12_SP1">
+    <path project="openSUSE.org:SUSE:SLE-12-SP1:GA" repository="standard"/>
+    <arch>x86_64</arch>
+  </repository>
+  <repository name="CentOS_7.2">
+    <path project="CentOS" repository="7.2"/>
+    <arch>x86_64</arch>
+  </repository>
+</project>

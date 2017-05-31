@@ -1,0 +1,15 @@
+<project name="Licenses">
+  <title/>
+  <description/>
+  <person userid="Admin" role="maintainer"/>
+  
+  <build>
+    <disable/>
+  </build>
+  <publish>
+    <disable/>
+  </publish>
+  <repository name="standard">
+    <arch>x86_64</arch>
+  </repository>
+</project>

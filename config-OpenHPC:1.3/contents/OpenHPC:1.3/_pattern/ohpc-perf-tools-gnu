@@ -1,0 +1,23 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-perf-tools-gnu</name>
+ <summary>ohpc-perf-tools-gnu</summary>
+ <description>OpenHPC performance tool builds for use with GNU compiler toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="imb-gnu-mpich-ohpc"/>
+   <rpm:entry name="imb-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="imb-gnu-openmpi-ohpc"/>
+   <rpm:entry name="mpiP-gnu-mpich-ohpc"/>
+   <rpm:entry name="mpiP-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="mpiP-gnu-openmpi-ohpc"/>
+   <rpm:entry name="papi-ohpc"/>
+   <rpm:entry name="tau-gnu-mpich-ohpc"/>
+   <rpm:entry name="tau-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="tau-gnu-openmpi-ohpc"/>
+   <rpm:entry name="scalasca-gnu-mpich-ohpc"/>
+   <rpm:entry name="scalasca-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="scalasca-gnu-openmpi-ohpc"/>
+ </rpm:requires>
+</pattern>

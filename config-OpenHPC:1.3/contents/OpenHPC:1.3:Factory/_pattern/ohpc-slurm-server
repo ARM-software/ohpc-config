@@ -1,0 +1,38 @@
+<!-- OpenHPC OBS configuration files -->
+
+<!--
+Licensed under the Apache License, Version 2.0 (the "License"); you
+may not use this file except in compliance with the License. You may
+obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing
+permissions and limitations under the License.
+-->
+
+<!-- See https://github.com/openSUSE/libzypp/tree/master/zypp/parser/yum/schema/patterns.rng -->
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-slurm-server</name>
+ <summary>ohpc-slurm-server</summary>
+ <description>OpenHPC server packages for SLURM</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="slurm-ohpc"/>
+   <rpm:entry name="slurm-munge-ohpc"/>
+   <rpm:entry name="slurm-plugins-ohpc"/>
+   <rpm:entry name="slurm-perlapi-ohpc"/>
+   <rpm:entry name="slurm-devel-ohpc"/>
+   <rpm:entry name="slurm-slurmdbd-ohpc"/>
+   <rpm:entry name="slurm-sql-ohpc"/>
+   <rpm:entry name="slurm-slurmdb-direct-ohpc"/>
+   <rpm:entry name="munge-ohpc"/>
+   <rpm:entry name="munge-libs-ohpc"/>
+   <rpm:entry name="munge-devel-ohpc"/>
+ </rpm:requires>
+</pattern>

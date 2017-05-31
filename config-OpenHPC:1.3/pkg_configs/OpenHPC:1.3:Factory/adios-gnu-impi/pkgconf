@@ -1,0 +1,8 @@
+<package name="adios-gnu-impi" project="OpenHPC:1.3:Factory">
+  <title/>
+  <description/>
+  <build>
+    <enable arch="x86_64"/>
+    <disable arch="aarch64"/>
+  </build>
+</package>

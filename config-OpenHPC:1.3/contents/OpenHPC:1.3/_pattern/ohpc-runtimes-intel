@@ -1,0 +1,11 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-runtimes-intel</name>
+ <summary>ohpc-runtimes-intel</summary>
+ <description>OpenHPC runtimes for use with Intel Parallel Studio toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="ocr-intel-ohpc"/>
+ </rpm:requires>
+</pattern>

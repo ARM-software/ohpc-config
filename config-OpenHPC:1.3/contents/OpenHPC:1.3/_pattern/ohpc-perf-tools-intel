@@ -1,0 +1,31 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-perf-tools-intel</name>
+ <summary>ohpc-perf-tools-intel</summary>
+ <description>OpenHPC performance tool builds for use with Intel Parallel Studio toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="imb-gnu-impi-ohpc"/>
+   <rpm:entry name="imb-intel-impi-ohpc"/>
+   <rpm:entry name="imb-intel-mpich-ohpc"/>
+   <rpm:entry name="imb-intel-mvapich2-ohpc"/>
+   <rpm:entry name="imb-intel-openmpi-ohpc"/>
+   <rpm:entry name="mpiP-gnu-impi-ohpc"/>
+   <rpm:entry name="mpiP-intel-impi-ohpc"/>
+   <rpm:entry name="mpiP-intel-mpich-ohpc"/>
+   <rpm:entry name="mpiP-intel-mvapich2-ohpc"/>
+   <rpm:entry name="mpiP-intel-openmpi-ohpc"/>
+   <rpm:entry name="papi-ohpc"/>
+   <rpm:entry name="tau-gnu-impi-ohpc"/>
+   <rpm:entry name="tau-intel-impi-ohpc"/>
+   <rpm:entry name="tau-intel-mpich-ohpc"/>
+   <rpm:entry name="tau-intel-mvapich2-ohpc"/>
+   <rpm:entry name="tau-intel-openmpi-ohpc"/>
+   <rpm:entry name="scalasca-gnu-impi-ohpc"/>
+   <rpm:entry name="scalasca-intel-impi-ohpc"/>
+   <rpm:entry name="scalasca-intel-mpich-ohpc"/>
+   <rpm:entry name="scalasca-intel-mvapich2-ohpc"/>
+   <rpm:entry name="scalasca-intel-openmpi-ohpc"/>
+ </rpm:requires>
+</pattern>

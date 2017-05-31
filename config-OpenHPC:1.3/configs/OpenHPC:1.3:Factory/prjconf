@@ -1,0 +1,67 @@
+Prefer: libstdc++
+Prefer: db4-utils
+Prefer: munge-libs-ohpc
+Prefer: libtool-ohpc
+Prefer: libelf0
+Prefer: libcilkrts
+Prefer: libatomic
+Prefer: postgresql93-server
+Prefer: libpsm2-compat
+Preinstall: lmod-ohpc
+
+# OPA PSM libraries
+Prefer: libpsm2-10.2.42
+Prefer: libpsm2-devel-10.2.42
+
+%if 0%{?rhel_version} || 0%{?centos_version}
+Preinstall: perl-Exporter
+Preinstall: perl-Data-Dumper
+Preinstall: perl-Carp
+Preinstall: perl-Getopt-Long
+Preinstall: perl-constant
+Preinstall: perl-Digest-MD5
+Patterntype: comps
+%endif
+
+Preinstall: findutils 
+
+# PXSE 2017
+%ifarch x86_64
+
+Runscripts: intel-mkl-common-098
+Order: intel-mkl-098:intel-compilers-devel-ohpc
+
+Preinstall: intel-ifort-l-ps-098
+Preinstall: intel-icc-l-all-098
+Preinstall: intel-comp-l-all-vars-098
+Preinstall: intel-icc-l-all-common-098
+Preinstall: intel-mkl-098
+Preinstall: intel-mkl-rt-098
+Preinstall: intel-mkl-common-098
+Preinstall: intel-mkl-common-c-098
+Preinstall: intel-mkl-ps-cluster-rt-098
+Preinstall: intel-mpi-psxe-035
+Preinstall: intel-mpi-rt-core-098
+Preinstall: intel-mpi-sdk-core-098
+
+Prefer: intel-openmp-l-ps-ss-bec-098
+Prefer: intel-mkl-rt-098
+Prefer: intel-openmp-l-all-098
+%endif
+
+# PXSE 2016-u3
+#%ifarch x86_64
+#Preinstall: intel-ifort-l-ps-devel-210
+#Preinstall: intel-icc-l-all-210
+#Preinstall: intel-comp-l-all-vars-223
+#Preinstall: intel-compxe-pset
+#Preinstall: intel-mkl-210
+#Preinstall: intel-mkl-common-210
+#Preinstall: intel-mpi-psxe-068
+#Preinstall: intel-mpi-rt-core-223
+#Preinstall: intel-mpi-sdk-core-223
+%endif
+
+Macros:
+%OHPC_BUILD 1
+%PROJ_DELIM -ohpc
