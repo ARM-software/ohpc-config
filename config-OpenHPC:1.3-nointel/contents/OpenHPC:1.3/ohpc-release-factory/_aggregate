@@ -1,0 +1,5 @@
+<aggregatelist>
+  <aggregate project="OpenHPC:1.3:Dep:Release">
+    <package>ohpc-release-factory</package>
+  </aggregate>
+</aggregatelist>

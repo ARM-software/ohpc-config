@@ -1,0 +1,26 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-io-libs-gnu</name>
+ <summary>ohpc-io-libs-gnu</summary>
+ <description>OpenHPC IO library builds for use with GNU compiler toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="adios-gnu-mpich-ohpc"/>
+   <rpm:entry name="adios-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="adios-gnu-openmpi-ohpc"/>
+   <rpm:entry name="hdf5-gnu-ohpc"/>
+   <rpm:entry name="phdf5-gnu-mpich-ohpc"/>
+   <rpm:entry name="phdf5-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="phdf5-gnu-openmpi-ohpc"/>
+   <rpm:entry name="netcdf-gnu-mpich-ohpc"/>
+   <rpm:entry name="netcdf-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="netcdf-gnu-openmpi-ohpc"/>
+   <rpm:entry name="netcdf-cxx-gnu-mpich-ohpc"/>
+   <rpm:entry name="netcdf-cxx-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="netcdf-cxx-gnu-openmpi-ohpc"/>
+   <rpm:entry name="netcdf-fortran-gnu-mpich-ohpc"/>
+   <rpm:entry name="netcdf-fortran-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="netcdf-fortran-gnu-openmpi-ohpc"/>
+ </rpm:requires>
+</pattern>

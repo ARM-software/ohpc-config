@@ -1,0 +1,30 @@
+Prefer: libstdc++
+Prefer: db4-utils
+Prefer: munge-libs-ohpc
+Prefer: libtool-ohpc
+Prefer: libelf0
+Prefer: libcilkrts
+Prefer: libatomic
+Prefer: postgresql93-server
+Prefer: libpsm2-compat
+Preinstall: lmod-ohpc
+
+# OPA PSM libraries
+Prefer: libpsm2-10.2.42
+Prefer: libpsm2-devel-10.2.42
+
+%if 0%{?rhel_version} || 0%{?centos_version}
+Preinstall: perl-Exporter
+Preinstall: perl-Data-Dumper
+Preinstall: perl-Carp
+Preinstall: perl-Getopt-Long
+Preinstall: perl-constant
+Preinstall: perl-Digest-MD5
+Patterntype: comps
+%endif
+
+Preinstall: findutils 
+
+Macros:
+%OHPC_BUILD 1
+%PROJ_DELIM -ohpc

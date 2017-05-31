@@ -1,0 +1,5 @@
+<aggregatelist>
+  <aggregate project="OpenHPC:1.3:Dep:Lmod">
+    <package>lmod</package>
+  </aggregate>
+</aggregatelist>

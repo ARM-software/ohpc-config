@@ -1,0 +1,44 @@
+<services>
+
+  <service name="tar_scm">
+
+    <!-- Begin INPUT ######################################  -->
+    <!--    Update following lines to define the             -->
+    <!--    correct component path in git and desired branch -->
+
+    <param name="subdir">components</param>
+    <param name="revision">obs/OpenHPC_1.3_Factory</param>
+    <param name="include">rms</param>
+    <param name="include">OHPC_macros</param>
+
+    <!-- End INPUT ######################################    -->
+
+    <param name="scm">git</param>
+    <param name="url">http://github.com/openhpc/ohpc.git</param>
+    <param name="filename">git-infra</param>
+    <param name="changesgenerate">enable</param>
+    <param name="changesauthor">Admin</param>
+  </service>
+
+  <service name="extract_file">
+
+    <!-- Begin INPUT 2 ####################################  -->
+    <!--    Update the following lines to define files to    -->
+    <!--    extract for package tarball                      -->
+
+    <param name="files">
+      */rms/slurm/SPECS/*.spec
+      */rms/slurm/SOURCES/*
+      */OHPC_macros
+    </param>
+
+    <!-- End INPUT 2 ###################################### -->
+
+    <param name="archive">*.tar</param>
+  </service>
+
+  <service name="download_files">
+    <param name="enforceupstream">yes</param>
+  </service>
+
+</services>

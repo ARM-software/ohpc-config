@@ -1,0 +1,14 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-serial-libs-gnu</name>
+ <summary>ohpc-serial-libs-gnu</summary>
+ <description>OpenHPC serial library builds for use with GNU compiler toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="gsl-gnu-ohpc"/>
+   <rpm:entry name="metis-gnu-ohpc"/>
+   <rpm:entry name="openblas-gnu-ohpc"/>
+   <rpm:entry name="superlu-gnu-ohpc"/>
+ </rpm:requires>
+</pattern>

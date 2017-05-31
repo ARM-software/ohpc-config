@@ -1,0 +1,15 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-nagios</name>
+ <summary>ohpc-nagios</summary>
+ <description>Collection of Nagios monitoring and metrics packages</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="nagios-ohpc"/>
+   <rpm:entry name="nagios-plugins-all-ohpc"/>
+   <rpm:entry name="nrpe-ohpc"/>
+ </rpm:requires>
+</pattern>
+
+

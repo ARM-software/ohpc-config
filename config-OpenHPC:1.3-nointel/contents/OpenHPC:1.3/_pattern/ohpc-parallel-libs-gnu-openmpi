@@ -1,0 +1,18 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-parallel-libs-gnu-openmpi</name>
+ <summary>ohpc-parallel-libs-gnu-openmpi</summary>
+ <description>OpenHPC parallel library builds for use with GNU compiler toolchain and the OpenMPI runtime</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="boost-gnu-openmpi-ohpc"/>
+   <rpm:entry name="fftw-gnu-openmpi-ohpc"/>
+   <rpm:entry name="hypre-gnu-openmpi-ohpc"/>
+   <rpm:entry name="mumps-gnu-openmpi-ohpc"/>
+   <rpm:entry name="petsc-gnu-openmpi-ohpc"/>
+   <rpm:entry name="scalapack-gnu-openmpi-ohpc"/>
+   <rpm:entry name="superlu_dist-gnu-openmpi-ohpc"/>
+   <rpm:entry name="trilinos-gnu-openmpi-ohpc"/>
+ </rpm:requires>
+</pattern>

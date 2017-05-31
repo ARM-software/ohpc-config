@@ -1,0 +1,14 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-python-libs-gnu</name>
+ <summary>ohpc-python-libs-gnu</summary>
+ <description>OpenHPC python related library builds for use with GNU compiler toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="python-numpy-gnu-ohpc"/>
+   <rpm:entry name="python-scipy-gnu-mpich-ohpc"/>
+   <rpm:entry name="python-scipy-gnu-mvapich2-ohpc"/>
+   <rpm:entry name="python-scipy-gnu-openmpi-ohpc"/>
+ </rpm:requires>
+</pattern>
