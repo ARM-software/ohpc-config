@@ -1,0 +1,11 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-runtimes-gnu</name>
+ <summary>ohpc-runtimes-gnu</summary>
+ <description>OpenHPC runtimes for use with GNU compiler toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="ocr-gnu-ohpc"/>
+ </rpm:requires>
+</pattern>

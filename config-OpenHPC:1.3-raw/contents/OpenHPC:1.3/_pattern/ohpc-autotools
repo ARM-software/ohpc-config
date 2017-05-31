@@ -1,0 +1,16 @@
+<!-- See https://github.com/openSUSE/libzypp/tree/master/zypp/parser/yum/schema/patterns.rng -->
+
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-autotools</name>
+ <summary>ohpc-autotools</summary>
+ <description>Collection of GNU autotools packages</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="autoconf-ohpc"/>
+   <rpm:entry name="automake-ohpc"/>
+   <rpm:entry name="libtool-ohpc"/>
+ </rpm:requires>
+</pattern>
+

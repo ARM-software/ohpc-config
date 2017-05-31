@@ -1,0 +1,6 @@
+<aggregatelist>
+  <aggregate project="OpenHPC:1.3:Dep:Lmod">
+    <package>lua-posix</package>
+  </aggregate>
+</aggregatelist>
+

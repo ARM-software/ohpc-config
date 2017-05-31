@@ -1,0 +1,12 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-serial-libs-intel</name>
+ <summary>ohpc-serial-libs-intel</summary>
+ <description>OpenHPC serial library builds for use with Intel Parallel Studio toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="metis-intel-ohpc"/>
+   <rpm:entry name="superlu-intel-ohpc"/>
+ </rpm:requires>
+</pattern>

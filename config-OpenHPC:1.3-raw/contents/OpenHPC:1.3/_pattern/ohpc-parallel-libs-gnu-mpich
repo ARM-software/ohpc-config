@@ -1,0 +1,18 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-parallel-libs-gnu-mpich</name>
+ <summary>ohpc-parallel-libs-gnu-mpich</summary>
+ <description>OpenHPC parallel library builds for use with GNU compiler toolchain and the MPICH runtime</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="boost-gnu-mpich-ohpc"/>
+   <rpm:entry name="fftw-gnu-mpich-ohpc"/>
+   <rpm:entry name="hypre-gnu-mpich-ohpc"/>
+   <rpm:entry name="mumps-gnu-mpich-ohpc"/>
+   <rpm:entry name="petsc-gnu-mpich-ohpc"/>
+   <rpm:entry name="scalapack-gnu-mpich-ohpc"/>
+   <rpm:entry name="superlu_dist-gnu-mpich-ohpc"/>
+   <rpm:entry name="trilinos-gnu-mpich-ohpc"/>
+ </rpm:requires>
+</pattern>

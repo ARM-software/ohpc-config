@@ -1,0 +1,7 @@
+<package name="boost-intel-openmpi" project="OpenHPC:1.3:Update1:Factory">
+  <title/>
+  <description/>
+  <build>
+    <disable arch="aarch64"/>
+  </build>
+</package>

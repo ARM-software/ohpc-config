@@ -1,0 +1,16 @@
+<link project="OpenHPC:1.2:Factory" package="numpy-gnu" baserev="debf828f064247bf2fc7522ee5f12007">
+  <patches>
+    <topadd>%define compiler_family intel</topadd>
+    <delete name="_service:download_files:numpy-1.11.1.tar.gz" />
+    <delete name="_service:extract_file:OHPC_macros" />
+    <delete name="_service:extract_file:OHPC_setup_compiler" />
+    <delete name="_service:extract_file:numpy-buildfix.patch" />
+    <delete name="_service:extract_file:numpy-intelccomp.patch" />
+    <delete name="_service:extract_file:numpy-intelfcomp.patch" />
+    <delete name="_service:extract_file:python-numpy.spec" />
+    <delete name="_service:extract_file:rpmlintrc" />
+    <delete name="_service:tar_scm:_servicedata" />
+    <delete name="_service:tar_scm:git-infra-1478719044.d736ffb.tar" />
+    <apply name="project.diff" />
+  </patches>
+</link>

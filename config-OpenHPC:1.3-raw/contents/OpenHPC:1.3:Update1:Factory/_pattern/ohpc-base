@@ -1,0 +1,51 @@
+<!-- OpenHPC OBS configuration files -->
+
+<!--
+Licensed under the Apache License, Version 2.0 (the "License"); you
+may not use this file except in compliance with the License. You may
+obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+implied. See the License for the specific language governing
+permissions and limitations under the License.
+-->
+
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-base</name>
+ <summary>ohpc-base</summary>
+ <description>OpenHPC base packages</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="lmod-ohpc"/>
+   <rpm:entry name="examples-ohpc"/>
+   <rpm:entry name="losf-ohpc"/>
+   <rpm:entry name="pdsh-ohpc"/>
+   <rpm:entry name="conman-ohpc"/>
+   <rpm:entry name="libstdc++-devel"/>
+   <rpm:entry name="ntp"/>
+   <rpm:entry name="nfs-kernel-server"/>
+   <rpm:entry name="libmlx4-rdmav2"/>
+   <rpm:entry name="ipmitool"/>
+   <rpm:entry name="OpenIPMI"/>
+   <rpm:entry name="glibc-locale"/>
+   <rpm:entry name="binutils"/>
+   <rpm:entry name="binutils-devel"/>
+   <rpm:entry name="make"/>
+   <rpm:entry name="bc"/>
+   <rpm:entry name="screen"/>
+   <rpm:entry name="emacs-nox"/>
+   <rpm:entry name="man"/>
+   <rpm:entry name="man-db"/>
+   <rpm:entry name="gdb"/>
+   <rpm:entry name="sudo"/>
+   <rpm:entry name="nfs-utils"/>
+   <rpm:entry name="net-tools"/>
+ </rpm:requires>
+</pattern>
+

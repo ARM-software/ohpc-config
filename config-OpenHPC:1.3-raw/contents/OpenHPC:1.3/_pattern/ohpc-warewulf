@@ -1,0 +1,16 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-warewulf</name>
+ <summary>ohpc-warewulf</summary>
+ <description>Collection of base packages for Warewulf provisioning</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="warewulf-cluster-ohpc"/>
+   <rpm:entry name="warewulf-common-ohpc"/>
+   <rpm:entry name="warewulf-vnfs-ohpc"/>
+   <rpm:entry name="warewulf-provision-ohpc"/>
+   <rpm:entry name="warewulf-provision-server-ohpc"/>
+ </rpm:requires>
+</pattern>
+

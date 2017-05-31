@@ -1,0 +1,17 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-parallel-libs-intel-openmpi</name>
+ <summary>ohpc-parallel-libs-intel-openmpi</summary>
+ <description>OpenHPC parallel library builds for use with Intel Parallel Studio toolchain and the OpenMPI runtime</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="boost-intel-openmpi-ohpc"/>
+   <rpm:entry name="hypre-intel-openmpi-ohpc"/>
+   <rpm:entry name="mumps-intel-openmpi-ohpc"/>
+   <rpm:entry name="petsc-intel-openmpi-ohpc"/>
+   <rpm:entry name="scalapack-intel-openmpi-ohpc"/>
+   <rpm:entry name="superlu_dist-intel-openmpi-ohpc"/>
+   <rpm:entry name="trilinos-intel-openmpi-ohpc"/>
+ </rpm:requires>
+</pattern>

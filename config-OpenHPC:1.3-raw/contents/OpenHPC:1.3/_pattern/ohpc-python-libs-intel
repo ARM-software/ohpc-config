@@ -1,0 +1,11 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-python-libs-intel</name>
+ <summary>ohpc-python-libs-intel</summary>
+ <description>OpenHPC python related library builds for use with Intel Parallel Studio toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="python-numpy-intel-ohpc"/>
+ </rpm:requires>
+</pattern>

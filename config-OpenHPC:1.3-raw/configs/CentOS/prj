@@ -1,0 +1,22 @@
+<project name="CentOS">
+  <title>CentOS 7 repository</title>
+  <description/>
+  <person userid="Admin" role="maintainer"/>
+  <person userid="karl" role="maintainer"/>
+  <build>
+    <disable/>
+  </build>
+  <publish>
+    <disable/>
+  </publish>
+  <repository name="7.3">
+    <arch>x86_64</arch>
+  </repository>
+  <repository name="7.2">
+    <arch>x86_64</arch>
+    <arch>aarch64</arch>
+  </repository>
+  <repository name="7.1">
+    <arch>x86_64</arch>
+  </repository>
+</project>

@@ -1,0 +1,17 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-parallel-libs-intel-mvapich2</name>
+ <summary>ohpc-parallel-libs-intel-mvapich2</summary>
+ <description>OpenHPC parallel library builds for use with Intel Parallel Studio toolchain and the MVAPICH2 runtime</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="boost-intel-mvapich2-ohpc"/>
+   <rpm:entry name="hypre-intel-mvapich2-ohpc"/>
+   <rpm:entry name="mumps-intel-mvapich2-ohpc"/>
+   <rpm:entry name="petsc-intel-mvapich2-ohpc"/>
+   <rpm:entry name="scalapack-intel-mvapich2-ohpc"/>
+   <rpm:entry name="superlu_dist-intel-mvapich2-ohpc"/>
+   <rpm:entry name="trilinos-intel-mvapich2-ohpc"/>
+ </rpm:requires>
+</pattern>

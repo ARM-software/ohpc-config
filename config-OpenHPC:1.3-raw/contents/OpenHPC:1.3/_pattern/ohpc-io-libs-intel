@@ -1,0 +1,36 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-io-libs-intel</name>
+ <summary>ohpc-io-libs-intel</summary>
+ <description>OpenHPC IO library builds for use with Intel parallel studio toolchain</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="adios-gnu-impi-ohpc"/>
+   <rpm:entry name="adios-intel-impi-ohpc"/>
+   <rpm:entry name="adios-intel-mpich-ohpc"/>
+   <rpm:entry name="adios-intel-mvapich2-ohpc"/>
+   <rpm:entry name="adios-intel-openmpi-ohpc"/>
+   <rpm:entry name="hdf5-intel-ohpc"/>
+   <rpm:entry name="phdf5-gnu-impi-ohpc"/>
+   <rpm:entry name="phdf5-intel-mpich-ohpc"/>
+   <rpm:entry name="phdf5-intel-mvapich2-ohpc"/>
+   <rpm:entry name="phdf5-intel-openmpi-ohpc"/>
+   <rpm:entry name="phdf5-intel-impi-ohpc"/>
+   <rpm:entry name="netcdf-gnu-impi-ohpc"/>
+   <rpm:entry name="netcdf-intel-impi-ohpc"/>
+   <rpm:entry name="netcdf-intel-mpich-ohpc"/>
+   <rpm:entry name="netcdf-intel-mvapich2-ohpc"/>
+   <rpm:entry name="netcdf-intel-openmpi-ohpc"/>
+   <rpm:entry name="netcdf-cxx-gnu-impi-ohpc"/>
+   <rpm:entry name="netcdf-cxx-intel-impi-ohpc"/>
+   <rpm:entry name="netcdf-cxx-intel-mpich-ohpc"/>
+   <rpm:entry name="netcdf-cxx-intel-mvapich2-ohpc"/>
+   <rpm:entry name="netcdf-cxx-intel-openmpi-ohpc"/>
+   <rpm:entry name="netcdf-fortran-gnu-impi-ohpc"/>
+   <rpm:entry name="netcdf-fortran-intel-impi-ohpc"/>
+   <rpm:entry name="netcdf-fortran-intel-mpich-ohpc"/>
+   <rpm:entry name="netcdf-fortran-intel-mvapich2-ohpc"/>
+   <rpm:entry name="netcdf-fortran-intel-openmpi-ohpc"/>
+ </rpm:requires>
+</pattern>

@@ -1,0 +1,17 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-ganglia</name>
+ <summary>ohpc-ganglia</summary>
+ <description>Collection of Ganglia monitoring and metrics packages</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="ganglia-ohpc"/>
+   <rpm:entry name="ganglia-gmetad-ohpc"/>
+   <rpm:entry name="ganglia-gmond-ohpc"/>
+   <rpm:entry name="ganglia-gmond-python-ohpc"/>
+   <rpm:entry name="ganglia-web-ohpc"/>
+ </rpm:requires>
+</pattern>
+
+

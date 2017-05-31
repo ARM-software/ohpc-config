@@ -1,0 +1,13 @@
+<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
+ xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+ <name>ohpc-base-compute</name>
+ <summary>ohpc-base-compute</summary>
+ <description>OpenHPC compute node base packages</description>
+ <uservisible/>
+ <category lang="en"></category>
+ <rpm:requires>
+   <rpm:entry name="libicu"/>
+   <rpm:entry name="numactl"/>
+ </rpm:requires>
+</pattern>
+

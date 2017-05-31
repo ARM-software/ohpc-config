@@ -1,0 +1,5 @@
+<aggregatelist>
+  <aggregate project="OpenHPC:1.2:Dep:Lmod">
+    <package>lua-bit</package>
+  </aggregate>
+</aggregatelist>

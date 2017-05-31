@@ -1,0 +1,9 @@
+<project name="EPEL7-deps">
+  <title>Dependencies from EPEL7 for use with OpenHPC</title>
+  <description/>
+  <person userid="Admin" role="maintainer"/>
+  <repository name="standard">
+    <arch>x86_64</arch>
+    <arch>aarch64</arch>
+  </repository>
+</project>
