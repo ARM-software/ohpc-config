@@ -1,0 +1,143 @@
+#!/bin/bash
+###############################################################################
+#
+# apply_obs_config
+#
+USAGE="Usage: $0 [-t target_obs] [-c] [-d temp_dir] config_dir"
+#
+# Eg: apply_obs_config OpenHPC1:3
+#
+# Take the config in directory "config_dir" and apply it to an OBS server
+#
+# Config can be collected from an OBS server using collect_obs_config
+#
+# Log of stdout/stderr and temp files are stored in a mktemp dir
+#
+# -t target_obs         OBS server to use. Defaults to localhost
+# -c                    Only apply contents of packages
+# -d temp_dir           Directory used to checkout files. Defaults to mktemp
+#
+# Copying package contents may take many hours.
+# If the script dies during this stage, then find current log dir and restart
+# using -c and -d
+# Eg: ./apply_obs_config -c -d /tmp/tmp.zJJpfwSqIn config-OpenHPC:1.3
+#
+###############################################################################
+
+
+TARGET=https://localhost
+CONTENTS_ONLY=0
+LOGDIR=
+while getopts t:cd: line
+do
+  case $line in
+  t) TARGET=$OPTARG;;
+  c) CONTENTS_ONLY=1;;
+  d) LOGDIR=$OPTARG;
+     if [[ ! -d "$LOGDIR" ]]
+     then
+       echo $USAGE; exit 2
+     fi;;
+  *) echo $USAGE; exit 2;;
+  esac
+done
+shift $(($OPTIND - 1))
+
+if [[ $# -ne 1 ]]
+then
+  echo $USAGE
+  exit 2
+fi
+DIR=$1
+if [[ ! -d "$DIR" ]]
+then
+  echo $USAGE
+  exit 2
+fi
+cd $DIR
+DIR=$(pwd)
+
+if [[ -z "$LOGDIR" ]]
+then
+  LOGDIR=$(mktemp -d)
+fi
+
+#Check we can access target
+#Run before redirecting output otherwise input prompts will be lost
+echo "Checking access to $TARGET"
+osc -A $TARGET whois
+if [[ $? -ne 0 ]]
+then
+  echo "Error: Cannot access $TARGET"
+fi
+
+#Log all output to log file
+exec > >(tee -a "$LOGDIR/log") 2>&1
+
+echo
+echo "***************************************"
+echo "$0 $@"
+echo "Using tempdir $LOGDIR"
+echo
+
+#Make sure this exists
+mkdir -p /usr/lib/obs/.ssh
+
+if [[ $CONTENTS_ONLY -ne 1 ]]
+then
+  echo
+  echo "*** Install configs on $TARGET"
+  for project in $(ls "$DIR/configs")
+  do
+    cd "$DIR/configs/$project"
+    echo "$project"
+    osc -A $TARGET meta prj -F prj "$project"
+    #Ignore unlocking errors as many of the projects will already be unlocked
+    osc -A $TARGET unlock "$project" -m "unlocking project" 2>/dev/null
+    osc -A $TARGET meta prjconf -F prjconf "$project"
+  done
+
+  echo
+  echo "*** For each project, copy configs of each package to $TARGET"
+  for project in $(ls "$DIR/pkg_configs")
+  do
+    for package in $(ls "$DIR/pkg_configs/$project")
+    do
+      cd "$DIR/pkg_configs/$project/$package"
+      echo "$project : $package"
+      osc -A $TARGET meta pkg -F pkgconf "$project" "$package"
+    done
+  done
+fi
+
+echo
+echo "*** For each project, copy contents of each package to $TARGET"
+for project in $(ls "$DIR/contents/")
+do
+  echo "$project"
+  cd $LOGDIR
+  osc -A $TARGET checkout $project
+
+  for package in $(ls "$DIR/contents/$project/")
+  do
+    echo "$project : $package"
+    cd "$LOGDIR/$project/$package"
+
+    #Copy all files and commit them
+    for f in $(ls "$DIR/contents/$project/$package")
+    do
+      echo "$project : $package : $f"
+      cp "$DIR/contents/$project/$package/$f" .
+      osc -A $TARGET add $f
+    done
+    # We could do a single commit per project, but osc will still break it up
+    # into a commit per package. "Waiting for server side source service run"
+    # can take a fair time to complete and is the deciding factor in the time
+    # it takes for this script to run
+    osc -A $TARGET ci -m "initial commit"      
+  done
+done
+
+echo "config applied."
+echo "Logs and temp files stored in $LOGDIR, which you can remove."
+

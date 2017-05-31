@@ -1,0 +1,136 @@
+#!/bin/bash
+###############################################################################
+#
+# collect_obs_config
+#
+USAGE="Usage: $0 source_obs dir match"
+#
+# Eg: collect_obs_config "https://build.openhpc.community/" community OpenHPC:1.3
+#
+# Collect the config for all projects from OBS server "source_obs" that match
+# the wildcard "match", storing the results in directory "dir".
+#
+# Collected config can be applied to another OBS server using apply_obs_cofig
+#
+# Log of stdout/stderr is stored in "dir"/log
+#
+###############################################################################
+
+if [[ $# -ne 3 ]]
+then
+  echo $USAGE
+  exit 2
+fi
+SOURCE=$1
+DIR=$2
+MATCH=$3
+
+mkdir -p $DIR
+cd $DIR
+DIR=$(pwd)
+
+#Check we can access source
+#Run before redirecting output otherwise input prompts will be lost
+echo "Checking access to $SOURCE"
+osc -A $SOURCE whois
+if [[ $? -ne 0 ]]
+then
+  echo "Error: Cannot access $TARGET"
+fi
+
+#Log all output to log file
+exec > >(tee -a "log") 2>&1
+
+echo
+echo "***************************************"
+echo "$0 $@"
+echo
+
+#Get list of projects from source
+SOURCE_PROJECTS="$(osc -A $SOURCE ls | grep -v deleted | grep -v External | grep -v home | grep $MATCH)"
+
+#return 0 if $2 is contained in the list $1
+contains ()
+{
+  [[ "$1" =~ (^|[[:space:]])"$2"($|[[:space:]]) ]];
+}
+
+#Run command $1 until it succeeds. Exit after a set number of retries. Run $2 after each failure
+run_with_retry()
+{
+  ATTEMPTS=0
+  while true
+  do
+    $1
+    [[ $? -eq 0 ]] && return
+    ATTEMPTS=$((ATTEMPTS+1))
+    [[ $ATTEMPTS -gt 5 ]] && echo "Error: Aborted after max retries" >&2 && exit 2
+    $2
+    echo "(Retrying: $ATTEMPTS)"
+    sleep 1
+  done
+}
+
+#Get the prj and prjconf for a given project.
+#Recursively get any dependent projects too.
+copy_config()
+{
+  project=$1
+  mkdir -p "$DIR/configs/$project"
+  cd "$DIR/configs/$project"
+  echo "$project"
+  run_with_retry "osc -A $SOURCE meta prj $project" "" > prj
+  run_with_retry "osc -A $SOURCE meta prjconf $project" "" > prjconf
+
+  #Copy all dependent projects too
+  for newdep in $(grep "<path project=\"" prj | sed -e 's/.*project=\"\([^]]*\)\" .*/\1/g' | grep -v openSUSE.org)
+  do
+    contains "$SOURCE_PROJECTS $DEPS" "$newdep"
+    if [[ $? -eq 1 ]]
+    then
+      DEPS="$DEPS $newdep"
+      copy_config $newdep
+    fi
+  done
+}
+
+echo
+echo "*** Copy config of each project on $SOURCE"
+for p in $SOURCE_PROJECTS
+do
+  copy_config $p
+done
+
+echo
+echo "*** Copy config of packages from each project on $SOURCE"
+for project in $(ls "$DIR/configs/")
+do
+  echo "$project"
+  PACKAGES="$(osc -A $SOURCE ls $project)"
+  for package in $PACKAGES
+  do
+    mkdir -p "$DIR/pkg_configs/$project/$package"
+    cd "$DIR/pkg_configs/$project/$package"
+    echo "$project : $package"
+    run_with_retry "osc -A $SOURCE meta pkg $project $package" "" > pkgconf
+  done
+done
+
+echo
+echo "*** Copy contents of packages from each project on $SOURCE"
+mkdir -p "$DIR/contents"
+cd "$DIR/contents"
+for project in $(ls "$DIR/configs/")
+do
+  #Check out all the packages for the project individually, otherwise links will get skipped
+  PACKAGES="$(osc -A $SOURCE ls $project)"
+  for package in $PACKAGES
+  do
+    run_with_retry "osc -A $SOURCE checkout --unexpand-link $project $package" "rm -fr $project/$package"
+  done
+done
+
+#Delete .osc dirs
+find "$DIR/contents" -name ".osc" -exec rm -fr {} \;
+
+echo "config collected. This may now be applied to localhost obs using: apply_obs_config $DIR"
