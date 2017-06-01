@@ -46,6 +46,7 @@ permissions and limitations under the License.
 
     <param name="files">
       */io-libs/netcdf-Fortran/SPECS/*.spec
+      */io-libs/netcdf-Fortran/SOURCES/*
       */OHPC_macros
       */OHPC_setup_compiler
       */OHPC_setup_mpi

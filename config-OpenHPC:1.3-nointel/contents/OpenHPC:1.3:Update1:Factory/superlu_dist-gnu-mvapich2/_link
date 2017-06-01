@@ -14,17 +14,9 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 -->
 
-<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
- xmlns:rpm="http://linux.duke.edu/metadata/rpm">
- <name>ohpc-base-compute</name>
- <summary>ohpc-base-compute</summary>
- <description>OpenHPC compute node base packages</description>
- <uservisible/>
- <category lang="en"></category>
- <rpm:requires>
-   <rpm:entry name="libicu"/>
-   <rpm:entry name="libunwind"/>
-   <rpm:entry name="numactl"/>
- </rpm:requires>
-</pattern>
-
+<link project='OpenHPC:1.3:Update1:Factory' package='superlu_dist-gnu-openmpi'>
+<patches>
+  <topadd>%define compiler_family gnu</topadd>
+  <topadd>%define mpi_family mvapich2</topadd>
+</patches>
+</link> 

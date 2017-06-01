@@ -14,19 +14,9 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 -->
 
-<!-- See https://github.com/openSUSE/libzypp/tree/master/zypp/parser/yum/schema/patterns.rng -->
-
-<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
- xmlns:rpm="http://linux.duke.edu/metadata/rpm">
- <name>ohpc-autotools</name>
- <summary>ohpc-autotools</summary>
- <description>Collection of GNU autotools packages</description>
- <uservisible/>
- <category lang="en"></category>
- <rpm:requires>
-   <rpm:entry name="autoconf-ohpc"/>
-   <rpm:entry name="automake-ohpc"/>
-   <rpm:entry name="libtool-ohpc"/>
- </rpm:requires>
-</pattern>
-
+<link project='OpenHPC:1.3:Update1:Factory' package='superlu_dist-gnu-openmpi'>
+<patches>
+  <topadd>%define compiler_family gnu</topadd>
+  <topadd>%define mpi_family mpich</topadd>
+</patches>
+</link> 

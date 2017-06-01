@@ -1,0 +1,176 @@
+diff --git a/config-OpenHPC:1.3-nointel/configs/CentOS/prj b/config-OpenHPC:1.3-nointel/configs/CentOS/prj
+index 0d28f04..f807905 100644
+--- a/config-OpenHPC:1.3-nointel/configs/CentOS/prj
++++ b/config-OpenHPC:1.3-nointel/configs/CentOS/prj
+@@ -2,7 +2,6 @@
+   <title>CentOS 7 repository</title>
+   <description/>
+   <person userid="Admin" role="maintainer"/>
+-  
+   <build>
+     <disable/>
+   </build>
+@@ -10,11 +9,13 @@
+     <disable/>
+   </publish>
+   <repository name="7.3">
++    <download arch="aarch64" url="http://mirror.centos.org/altarch/7.3.1611/os/aarch64/" repotype="rpmmd"/>
++    <download arch="x86_64" url="http://mirror.centos.org/centos-7/7.3.1611/os/x86_64/" repotype="rpmmd"/>
+     <arch>x86_64</arch>
++    <arch>aarch64</arch>
+   </repository>
+   <repository name="7.2">
+     <arch>x86_64</arch>
+-    <arch>aarch64</arch>
+   </repository>
+   <repository name="7.1">
+     <arch>x86_64</arch>
+diff --git a/config-OpenHPC:1.3-nointel/configs/EPEL7-deps/prj b/config-OpenHPC:1.3-nointel/configs/EPEL7-deps/prj
+index 478a2fa..d3619cd 100644
+--- a/config-OpenHPC:1.3-nointel/configs/EPEL7-deps/prj
++++ b/config-OpenHPC:1.3-nointel/configs/EPEL7-deps/prj
+@@ -3,6 +3,8 @@
+   <description/>
+   <person userid="Admin" role="maintainer"/>
+   <repository name="standard">
++    <download arch="aarch64" url="http://dl.fedoraproject.org/pub/epel/7/x86_64/" repotype="rpmmd"/>
++    <download arch="x86_64" url="http://dl.fedoraproject.org/pub/epel/7/aarch64/" repotype="rpmmd"/>
+     <arch>x86_64</arch>
+     <arch>aarch64</arch>
+   </repository>
+diff --git a/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Factory/prj b/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Factory/prj
+index f67e8df..f2e25dd 100644
+--- a/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Factory/prj
++++ b/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Factory/prj
+@@ -10,19 +10,14 @@
+   </build>
+   <repository name="SLE_12" rebuild="local">
+     
+-    <path project="OPA:10.2.0.0.158" repository="SLE_12_SP1"/>
+     <path project="openSUSE.org:SUSE:SLE-12-SP2:GA" repository="standard"/>
+-    <path project="Licenses" repository="standard"/>
+-    <path project="NonFree:PXSE:2017" repository="SLE_12_SP1"/>
+     <arch>x86_64</arch>
+     <arch>aarch64</arch>
+   </repository>
+   <repository name="CentOS_7" rebuild="local">
+     
+     <path project="CentOS" repository="7.3"/>
+-    <path project="NonFree:PXSE:2017" repository="CentOS_7.2"/>
+     <path project="EPEL7-deps" repository="standard"/>
+-    <path project="Licenses" repository="standard"/>
+     <arch>x86_64</arch>
+     <arch>aarch64</arch>
+   </repository>
+diff --git a/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Factory/prjconf b/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Factory/prjconf
+index aeeed81..82933ce 100644
+--- a/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Factory/prjconf
++++ b/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Factory/prjconf
+@@ -25,43 +25,6 @@ Patterntype: comps
+ 
+ Preinstall: findutils 
+ 
+-# # PXSE 2017
+-# %ifarch x86_64
+-
+-# Runscripts: intel-mkl-common-098
+-# Order: intel-mkl-098:intel-compilers-devel-ohpc
+-
+-# Preinstall: intel-ifort-l-ps-098
+-# Preinstall: intel-icc-l-all-098
+-# Preinstall: intel-comp-l-all-vars-098
+-# Preinstall: intel-icc-l-all-common-098
+-# Preinstall: intel-mkl-098
+-# Preinstall: intel-mkl-rt-098
+-# Preinstall: intel-mkl-common-098
+-# Preinstall: intel-mkl-common-c-098
+-# Preinstall: intel-mkl-ps-cluster-rt-098
+-# Preinstall: intel-mpi-psxe-035
+-# Preinstall: intel-mpi-rt-core-098
+-# Preinstall: intel-mpi-sdk-core-098
+-
+-# Prefer: intel-openmp-l-ps-ss-bec-098
+-# Prefer: intel-mkl-rt-098
+-# Prefer: intel-openmp-l-all-098
+-# %endif
+-
+-# PXSE 2016-u3
+-#%ifarch x86_64
+-#Preinstall: intel-ifort-l-ps-devel-210
+-#Preinstall: intel-icc-l-all-210
+-#Preinstall: intel-comp-l-all-vars-223
+-#Preinstall: intel-compxe-pset
+-#Preinstall: intel-mkl-210
+-#Preinstall: intel-mkl-common-210
+-#Preinstall: intel-mpi-psxe-068
+-#Preinstall: intel-mpi-rt-core-223
+-#Preinstall: intel-mpi-sdk-core-223
+-#%endif
+-
+ Macros:
+ %OHPC_BUILD 1
+ %PROJ_DELIM -ohpc
+\ No newline at end of file
+diff --git a/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Update1:Factory/prj b/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Update1:Factory/prj
+index cb0d188..bff90e1 100644
+--- a/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Update1:Factory/prj
++++ b/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Update1:Factory/prj
+@@ -4,22 +4,16 @@
+   <person userid="Admin" role="maintainer"/>
+   <repository name="SLE_12" rebuild="local">
+     
+-    <path project="OPA:10.2.0.0.158" repository="SLE_12_SP1"/>
+     <path project="openSUSE.org:devel:languages:python" repository="SLE_12_SP2"/>
+     <path project="openSUSE.org:SUSE:SLE-12-SP2:GA" repository="standard"/>
+-    <path project="Licenses" repository="standard"/>
+-    <path project="NonFree:PXSE:2017_U4" repository="SLE_12_SP2"/>
+     <path project="OpenHPC:1.3:Factory" repository="SLE_12"/>
+     <arch>aarch64</arch>
+     <arch>x86_64</arch>
+   </repository>
+   <repository name="CentOS_7" rebuild="local">
+     
+-    <path project="OPA:10.2.0.0.158" repository="CentOS_7.2"/>
+     <path project="CentOS" repository="7.3"/>
+-    <path project="NonFree:PXSE:2017_U4" repository="CentOS_7"/>
+     <path project="EPEL7-deps" repository="standard"/>
+-    <path project="Licenses" repository="standard"/>
+     <path project="OpenHPC:1.3:Factory" repository="CentOS_7"/>
+     <arch>aarch64</arch>
+     <arch>x86_64</arch>
+diff --git a/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Update1:Factory/prjconf b/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Update1:Factory/prjconf
+index 28a0ca8..5fc20c1 100644
+--- a/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Update1:Factory/prjconf
++++ b/config-OpenHPC:1.3-nointel/configs/OpenHPC:1.3:Update1:Factory/prjconf
+@@ -3,31 +3,6 @@ Prefer: hwloc-ohpc
+ Preinstall: lmod-ohpc
+ Preinstall: findutils
+
+-# PXSE 2017-U4
+-%ifarch x86_64
+-
+-Runscripts: intel-mkl-common-196
+-Order: intel-mkl-196:intel-compilers-devel-ohpc
+-
+-Preinstall: intel-ifort-l-ps-196
+-Preinstall: intel-icc-l-all-196
+-Preinstall: intel-comp-l-all-vars-196
+-Preinstall: intel-icc-l-all-common-196
+-Preinstall: intel-mkl-196
+-Preinstall: intel-mkl-rt-196
+-Preinstall: intel-mkl-common-196
+-Preinstall: intel-mkl-common-c-196
+-Preinstall: intel-mkl-ps-cluster-rt-196
+-Preinstall: intel-mpi-psxe-056
+-Preinstall: intel-mpi-rt-core-196
+-Preinstall: intel-mpi-sdk-core-196
+-
+-Prefer: intel-openmp-l-ps-ss-bec-196
+-Prefer: intel-mkl-rt-196
+-Prefer: intel-openmp-l-all-196
+-Prefer: intel-ifort-l-ps-196
+-%endif
+-
+
+ %if 0%{?rhel_version} || 0%{?centos_version}
+ Preinstall: perl-Exporter

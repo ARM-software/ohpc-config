@@ -14,15 +14,10 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 -->
 
-<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
- xmlns:rpm="http://linux.duke.edu/metadata/rpm">
- <name>ohpc-runtimes-gnu</name>
- <summary>ohpc-runtimes-gnu</summary>
- <description>OpenHPC runtimes for use with GNU compiler toolchain</description>
- <uservisible/>
- <category lang="en"></category>
- <rpm:requires>
-   <rpm:entry name="ocr-gnu-ohpc"/>
-   <rpm:entry name="singularity-ohpc"/>
- </rpm:requires>
-</pattern>
+<link project='OpenHPC:1.3:Update1:Factory' package='mvapich2-gnu'>
+<patches>
+  <topadd>%define with_psm2 1</topadd>
+  <topadd>%define COMM_DELIM -psm2</topadd>
+</patches>
+</link>
+

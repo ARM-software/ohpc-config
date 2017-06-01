@@ -24,7 +24,7 @@ permissions and limitations under the License.
 
     <param name="subdir">components</param>
     <param name="revision">obs/OpenHPC_1.3.1_Factory</param>
-    <param name="include">io[-]libs</param>
+    <param name="include">admin</param>
     <param name="include">OHPC_macros</param>
     <param name="include">OHPC_setup_compiler</param>
     <param name="include">OHPC_setup_mpi</param>
@@ -45,8 +45,8 @@ permissions and limitations under the License.
     <!--    extract for package tarball                      -->
 
     <param name="files">
-      */io-libs/netcdf-CXX/SPECS/*.spec
-      */io-libs/netcdf-CXX/SOURCES/*
+      */admin/ohpc-filesystem/SPECS/*.spec
+      */admin/ohpc-filesystem/SOURCES/*
       */OHPC_macros
       */OHPC_setup_compiler
       */OHPC_setup_mpi
@@ -55,10 +55,6 @@ permissions and limitations under the License.
     <!-- End INPUT 2 ###################################### -->
 
     <param name="archive">*.tar</param>
-  </service>
-
-  <service name="download_files">
-    <param name="enforceupstream">yes</param>
   </service>
 
 </services>

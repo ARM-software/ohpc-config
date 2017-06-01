@@ -14,18 +14,9 @@ implied. See the License for the specific language governing
 permissions and limitations under the License.
 -->
 
-<pattern xmlns="http://novell.com/package/metadata/suse/pattern"
- xmlns:rpm="http://linux.duke.edu/metadata/rpm">
- <name>ohpc-nagios</name>
- <summary>ohpc-nagios</summary>
- <description>Collection of Nagios monitoring and metrics packages</description>
- <uservisible/>
- <category lang="en"></category>
- <rpm:requires>
-   <rpm:entry name="nagios-ohpc"/>
-   <rpm:entry name="nagios-plugins-all-ohpc"/>
-   <rpm:entry name="nrpe-ohpc"/>
- </rpm:requires>
-</pattern>
-
+<link project='OpenHPC:1.3:Update1:Factory' package='openmpi-gnu'>
+<patches>
+  <topadd>%define with_psm2 1</topadd>
+</patches>
+</link>
 

@@ -10,8 +10,8 @@ Prefer: libpsm2-compat
 Preinstall: lmod-ohpc
 
 # OPA PSM libraries
-Prefer: libpsm2-10.2.42
-Prefer: libpsm2-devel-10.2.42
+# Prefer: libpsm2-10.2.42
+# Prefer: libpsm2-devel-10.2.42
 
 %if 0%{?rhel_version} || 0%{?centos_version}
 Preinstall: perl-Exporter

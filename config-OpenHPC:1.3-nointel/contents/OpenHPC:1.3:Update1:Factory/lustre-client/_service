@@ -24,7 +24,7 @@ permissions and limitations under the License.
 
     <param name="subdir">components</param>
     <param name="revision">obs/OpenHPC_1.3.1_Factory</param>
-    <param name="include">lustre</param>
+    <param name="include">fs</param>
     <param name="include">OHPC_macros</param>
 
     <!-- End INPUT ######################################    -->
@@ -43,8 +43,8 @@ permissions and limitations under the License.
     <!--    extract for package tarball                      -->
 
     <param name="files">
-      */lustre/lustre-client/SPECS/*.spec
-      */lustre/lustre-client/SOURCES/*
+      */fs/lustre/lustre-client/SPECS/*.spec
+      */fs/lustre/lustre-client/SOURCES/*
       */OHPC_macros
     </param>
 
