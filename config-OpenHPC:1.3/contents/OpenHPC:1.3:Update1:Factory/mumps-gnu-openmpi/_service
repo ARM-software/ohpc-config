@@ -48,7 +48,6 @@ permissions and limitations under the License.
       */parallel-libs/mumps/SPECS/*.spec
       */parallel-libs/mumps/SOURCES/*
       */OHPC_macros
-      */OHPC_setup_compiler
       */OHPC_setup_mpi
     </param>
 

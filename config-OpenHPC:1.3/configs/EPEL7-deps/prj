@@ -3,8 +3,6 @@
   <description/>
   <person userid="Admin" role="maintainer"/>
   <repository name="standard">
-    <download arch="aarch64" url="http://dl.fedoraproject.org/pub/epel/7/x86_64/" repotype="rpmmd"/>
-    <download arch="x86_64" url="http://dl.fedoraproject.org/pub/epel/7/aarch64/" repotype="rpmmd"/>
     <arch>x86_64</arch>
     <arch>aarch64</arch>
   </repository>

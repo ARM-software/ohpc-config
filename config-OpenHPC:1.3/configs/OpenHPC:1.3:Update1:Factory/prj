@@ -2,21 +2,22 @@
   <title>1.3.1 - Update #1 rolling development builds</title>
   <description/>
   <person userid="Admin" role="maintainer"/>
-  <repository name="SLE_12">
+  <repository name="SLE_12" rebuild="local">
     
     <path project="OPA:10.2.0.0.158" repository="SLE_12_SP1"/>
     <path project="openSUSE.org:devel:languages:python" repository="SLE_12_SP2"/>
     <path project="openSUSE.org:SUSE:SLE-12-SP2:GA" repository="standard"/>
     <path project="Licenses" repository="standard"/>
-    <path project="NonFree:PXSE:2017" repository="SLE_12_SP1"/>
+    <path project="NonFree:PXSE:2017_U4" repository="SLE_12_SP2"/>
     <path project="OpenHPC:1.3:Factory" repository="SLE_12"/>
     <arch>aarch64</arch>
     <arch>x86_64</arch>
   </repository>
-  <repository name="CentOS_7">
+  <repository name="CentOS_7" rebuild="local">
     
+    <path project="OPA:10.2.0.0.158" repository="CentOS_7.2"/>
     <path project="CentOS" repository="7.3"/>
-    <path project="NonFree:PXSE:2017" repository="CentOS_7.2"/>
+    <path project="NonFree:PXSE:2017_U4" repository="CentOS_7"/>
     <path project="EPEL7-deps" repository="standard"/>
     <path project="Licenses" repository="standard"/>
     <path project="OpenHPC:1.3:Factory" repository="CentOS_7"/>

@@ -46,8 +46,8 @@ permissions and limitations under the License.
 
     <param name="files">
       */parallel-libs/fftw/SPECS/*.spec
+      */parallel-libs/fftw/SOURCES/*
       */OHPC_macros
-      */OHPC_setup_compiler
       */OHPC_setup_mpi
     </param>
 

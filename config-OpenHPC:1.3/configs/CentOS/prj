@@ -2,6 +2,7 @@
   <title>CentOS 7 repository</title>
   <description/>
   <person userid="Admin" role="maintainer"/>
+  
   <build>
     <disable/>
   </build>
@@ -9,13 +10,11 @@
     <disable/>
   </publish>
   <repository name="7.3">
-    <download arch="aarch64" url="http://mirror.centos.org/altarch/7.3.1611/os/aarch64/" repotype="rpmmd"/>
-    <download arch="x86_64" url="http://mirror.centos.org/centos-7/7.3.1611/os/x86_64/" repotype="rpmmd"/>
     <arch>x86_64</arch>
-    <arch>aarch64</arch>
   </repository>
   <repository name="7.2">
     <arch>x86_64</arch>
+    <arch>aarch64</arch>
   </repository>
   <repository name="7.1">
     <arch>x86_64</arch>
