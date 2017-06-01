@@ -45,6 +45,7 @@ permissions and limitations under the License.
 
     <param name="files">
       */io-libs/netcdf-CXX/SPECS/*.spec
+      */io-libs/netcdf-CXX/SOURCES/*
       */OHPC_macros
       */OHPC_setup_compiler
       */OHPC_setup_mpi

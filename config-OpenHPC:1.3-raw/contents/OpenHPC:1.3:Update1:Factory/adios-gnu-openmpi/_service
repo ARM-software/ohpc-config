@@ -47,8 +47,6 @@ permissions and limitations under the License.
       */io-libs/adios/SPECS/*.spec
       */io-libs/adios/SOURCES/*
       */OHPC_macros
-      */OHPC_setup_compiler
-      */OHPC_setup_mpi
     </param>
 
     <!-- End INPUT 2 ###################################### -->
