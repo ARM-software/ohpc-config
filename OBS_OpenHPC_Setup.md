@@ -2,7 +2,8 @@
 Instructions for creating an OBS instance ready for OpenHPC
 
 Note: This setup has only been tried with OBS 2.8.  
-Lines starting with $ should be entered on the command line.
+Lines starting with $ should be entered on the command line.  
+References to MYOBSSERVER should be replace with the full hostname of your OBS server.
 
 ## Install OBS
 
@@ -119,14 +120,15 @@ To create a new worker, you'll need a machine/VM with installed opensuse 42.2:
 On the new machine(s) you want to set up as a worker:
 
 install obs-worker:  
+``zypper ar http://download.opensuse.org/repositories/OBS:/Server:/2.7/openSUSE_42.1/OBS:Server:2.7.repo``  
 ``$ zypper addrepo http://download.opensuse.org/repositories/openSUSE:Tools/openSUSE_42.2/openSUSE:Tools.repo``    
 ``$ zypper refresh``  
 ``$ zypper install osc``  
 ``$ zypper install obs-service-tar_scm obs-service-format_spec_file obs-worker obs-service-extract_file obs-service-recompress obs-service-obs_scm-common obs-service-download_src_package obs-service-set_version obs-service-source_validator obs-service-download_url obs-service-verify_file obs-source_service obs-common obs-service-download_files obs-utils``  
 ``$ zypper install perl-XML-Structured``  
 
-In /etc/sysconfig/obs-server set the following. Note, memory must be set to at least 3000  
-> OBS_SCHEDULER_ARCHITECTURES=“aarch64 x86_64”  
+In /etc/sysconfig/obs-server update or add the following fields. Note, memory must be set to at least 3000.
+> OBS_SCHEDULER_ARCHITECTURES="aarch64 x86_64"  
 OBS_INSTANCE_MEMORY="3000"  
 OBS_SRC_SERVER="MYOBSSERVER:5352"  
 OBS_REPO_SERVERS="MYOBSSERVER:5252"
