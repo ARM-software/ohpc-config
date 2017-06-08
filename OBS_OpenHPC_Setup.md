@@ -24,7 +24,9 @@ TODO
 
 Create the .ssh dir  
 ``$ mkdir /usr/lib/obs/.ssh``  
-If you require ssh keys for OBS to access your own git repos, then add them to /usr/lib/obs/.ssh/
+``$ chown -R obsservicerun:obsrun /usr/lib/obs/.ssh``  
+If you require ssh keys for OBS to access your own git repos, then add them to /usr/lib/obs/.ssh/ and fill in /usr/lib/obs/.ssh/config.  
+OBS will check out files whilst running as the linux user 'obsservicerun'.
 
 Create a ssh certificate for the OBS server.  
 Without doing this step you'll get insecure warnings when accessing the web gui  
