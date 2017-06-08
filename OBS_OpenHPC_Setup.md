@@ -1,7 +1,7 @@
 # OBS_OpenHPC_Setup.md
 Instructions for creating an OBS instance ready for OpenHPC
 
-Note: This setup has only been tried with OBS 2.8.  
+Note: This setup only works with OBS server 2.7.  
 Lines starting with $ should be entered on the command line.  
 References to MYOBSSERVER should be replace with the full hostname of your OBS server.
 
@@ -10,8 +10,7 @@ References to MYOBSSERVER should be replace with the full hostname of your OBS s
 Install OBS using of of the following options:
 
 #### 1. Install onto VM
-Download ISO from http://openbuildservice.org/download/  
-Note, the ISO works better than the vmdk/vdi/qcow2 images.  
+Download ISO from http://download.opensuse.org/repositories/OBS:/Server:/2.7/images/iso/obs-server.x86_64-2.7.4-Build2.57.install.iso  
 Install onto machine/VM with at least 2 CPUs, 4 Gb of memory, 100Gb Disk  
 Image will automatically connect to DNS upon start-up. Hostname will be "linux.suse".  
 If your network automatically hands out new DNS leases, then the suggested method to change the hostname is to initially boot/install without network connected, edit /etc/hostname, then shutdown, connect networking and boot.
@@ -38,7 +37,7 @@ Enable auto start of ssh on boot
 Change root password (note the OBS usernames are different to the Linux usernames)
 
 To the top of /etc/sysconfig/obs-server add the following:  
-> OBS_SCHEDULER_ARCHITECTURES=“aarch64 x86_64” 
+> OBS_SCHEDULER_ARCHITECTURES="aarch64 x86_64"
 
 Add sudo (required)  
 ``$ zypper install sudo``
@@ -46,6 +45,14 @@ Add sudo (required)
 Now reboot the server
 
 At this point the console should list the hostname of the OBS server at the login prompt. If it doesn't then **fix the networking before going any further**. OBS can get confused if the hostname changes later.
+
+## Patch OBS
+
+The dependency checking in OBS needs tweaking. Without this change, some of the packages in OpenHPC:1.3:Update1:Factory will fail to build.
+
+``$ wget https://raw.githubusercontent.com/openhpc/ohpc/obs/OpenHPC_1.3.1_Factory/misc/obs/patches/obs.includedeps.patch``  
+``$ patch -p0 ./usr/lib/obs/server/bs_srcserver < /root/obs.includedeps.patch``
+
 
 ## Setup OBS GUI
 Go to the address given on the console after boot and log in with Admin/opensuse
