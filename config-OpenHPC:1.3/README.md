@@ -21,22 +21,11 @@ Fixed up configuration using:
 ``for f in $(find contents -name _service); do sed -i '/changesauthor/d' $f; done``  
 ``for f in $(find contents -name _service); do sed -i '/changesgenerate/a \\    <param name=\"changesauthor\">Admin<\/param>' $f; done``
 
-Added DOD to configs/EPEL7-deps/prj
->\+    \<download arch="aarch64" url="http://dl.fedoraproject.org/pub/epel/7/x86_64/" repotype="rpmmd"/>  
-\+    \<download arch="x86_64" url="http://dl.fedoraproject.org/pub/epel/7/aarch64/" repotype="rpmmd"/>
+Removed constraint files (they only contain memory constraints, which always failed to resolve correctly)
+``find . -name _constraints -exec rm {} \;``
 
-Added DOD to 7.3 section of configs/CentOS/prj
->   \<repository name="7.3">  
-\+    \<download arch="aarch64" url="http://mirror.centos.org/altarch/7.3.1611/os/aarch64/" repotype="rpmmd"/>  
-\+    \<download arch="x86_64" url="http://mirror.centos.org/centos-7/7.3.1611/os/x86_64/" repotype="rpmmd"/>  
-     \<arch>x86_64\</arch>  
-\+    \<arch>aarch64\</arch>
-
-Removed Aarch64 from 7.2 section of configs/CentOS/prj
->   \<repository name="7.2">  
-     \<arch>x86_64\</arch>  
-\-    \<arch>aarch64\</arch>
-
+Added DOD to EPEL7-deps and CentOS. Removed CentOS 7.2 for Aarch64. Removed Intel dependencies. Removed NonFree, OPA and licences from other projects:  
+``patch -p2 < deps.patch``
 
 ## Manual Additions required on OBS after applying config
 In order to build most x86_64 packages, the required dependency .rpms will need to be manually downloaded into the :full directories in /srv/obs/build/ for:

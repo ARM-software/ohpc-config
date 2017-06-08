@@ -21,6 +21,9 @@ Fixed up configuration using:
 ``for f in $(find contents -name _service); do sed -i '/changesauthor/d' $f; done``  
 ``for f in $(find contents -name _service); do sed -i '/changesgenerate/a \\    <param name=\"changesauthor\">Admin<\/param>' $f; done``
 
+Removed constraint files (they only contain memory constraints, which always failed to resolve correctly)
+``find . -name _constraints -exec rm {} \;``
+
 Removed Intel specific packages and repositories:  
 ``find contents -name "*intel*" -exec rm -fr {} \;``  
 ``find contents -name "*impi*" -exec rm -fr {} \;``  
