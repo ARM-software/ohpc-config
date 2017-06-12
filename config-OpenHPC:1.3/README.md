@@ -27,14 +27,14 @@ Removed constraint files (they only contain memory constraints, which always fai
 Removed numactl (causes dependency clash):  
 ``find contents -name numactl -exec rm -fr {} \;``
 
-Added DOD to EPEL7-deps and CentOS. Removed CentOS 7.2 for Aarch64. Removed Intel dependencies. Removed NonFree, OPA and licences from other projects:  
+Added DOD to EPEL7-deps and CentOS. Removed CentOS 7.2 for Aarch64:
 ``patch -p2 < deps.patch``
 
 ## Manual Additions required on OBS after applying config
 In order to build most x86_64 packages, the required dependency .rpms will need to be manually downloaded into the :full directories in /srv/obs/build/ for:
 * Licenses
-* NonFree:PXSE:2017
-* OPA:10.2.0.0.158	
+* NonFree:*
+* OPA:*	
 
 Instead, if you do not require intel builds then
 * Either: remove the "ifarch x86_64" section from the OpenHPC:1.3:Factory project config
