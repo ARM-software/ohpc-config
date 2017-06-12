@@ -24,6 +24,9 @@ Fixed up configuration using:
 Removed constraint files (they only contain memory constraints, which always failed to resolve correctly)
 ``find . -name _constraints -exec rm {} \;``
 
+Removed numactl (causes dependency clash):  
+``find contents -name numactl -exec rm -fr {} \;``
+
 Added DOD to EPEL7-deps and CentOS. Removed CentOS 7.2 for Aarch64. Removed Intel dependencies. Removed NonFree, OPA and licences from other projects:  
 ``patch -p2 < deps.patch``
 

@@ -24,6 +24,9 @@ Fixed up configuration using:
 Removed constraint files (they only contain memory constraints, which always failed to resolve correctly)
 ``find . -name _constraints -exec rm {} \;``
 
+Removed numactl (causes dependency clash):  
+``find contents -name numactl -exec rm -fr {} \;``
+
 Removed Intel specific packages and repositories:  
 ``find contents -name "*intel*" -exec rm -fr {} \;``  
 ``find contents -name "*impi*" -exec rm -fr {} \;``  
