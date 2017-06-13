@@ -53,7 +53,7 @@ At this point the console should list the hostname of the OBS server at the logi
 The dependency checking in OBS needs tweaking. Without this change, some of the packages in OpenHPC:1.3:Update1:Factory will fail to build.
 
 ``$ wget https://raw.githubusercontent.com/openhpc/ohpc/obs/OpenHPC_1.3.1_Factory/misc/obs/patches/obs.includedeps.patch``  
-``$ patch -p0 ./usr/lib/obs/server/bs_srcserver < /root/obs.includedeps.patch``
+``$ patch -p0 /usr/lib/obs/server/bs_srcserver < /root/obs.includedeps.patch``
 
 
 ## Setup OBS GUI
@@ -106,7 +106,7 @@ Are normally resolved using "Download on demand". Alternatively, the .rprms can 
 /srv/obs/build/CentOS/7.3/aarch64/:full/  
 * These rpms can be obtained from the packages/ dir on the given DOD link, eg http://mirror.centos.org/altarch/7.3.1611/os/aarch64/packages/
 * Refresh the scheduler:  
-``$ obs_admin --rescan-repository CentOS 7.3 x86_64``
+``$ obs_admin --rescan-repository CentOS 7.3 x86_64``  
 ``$ obs_admin --rescan-repository CentOS 7.3 aarch64``
 * Repeat all the CentOS steps for EPEL7-deps - https://MYOBSSERVER/project/meta/EPEL7-deps
 
@@ -129,7 +129,7 @@ To create a new worker, you'll need a machine/VM with installed opensuse 42.2:
 On the new machine(s) you want to set up as a worker:
 
 install obs-worker:  
-``zypper ar http://download.opensuse.org/repositories/OBS:/Server:/2.7/openSUSE_42.1/OBS:Server:2.7.repo``  
+``$ zypper ar http://download.opensuse.org/repositories/OBS:/Server:/2.7/openSUSE_42.1/OBS:Server:2.7.repo``  
 ``$ zypper addrepo http://download.opensuse.org/repositories/openSUSE:Tools/openSUSE_42.2/openSUSE:Tools.repo``    
 ``$ zypper refresh``  
 ``$ zypper install osc``  
