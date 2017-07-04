@@ -2,8 +2,8 @@
   <title/>
   <description/>
   <build>
-    <enable arch="x86_64"/>
-    <disable arch="aarch64"/>
     <disable arch="aarch64" repository="CentOS_7"/>
+    <disable arch="x86_64"/>
+    <disable arch="aarch64"/>
   </build>
 </package>

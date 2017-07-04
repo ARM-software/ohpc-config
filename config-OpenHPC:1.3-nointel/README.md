@@ -1,7 +1,7 @@
 # Config for OpenHPC:1.3-nointel
 
 * Source OBS:	https://build.openhpc.community
-* Date copied:	Thursday 1 June 2017
+* Date copied:  Tuesday 4th July 2017	
 * Command run:	``./collect_obs_config https://build.openhpc.community config-OpenHPC:1.3 OpenHPC:1.3``
 
 These are the config files as pulled from the openhpc OBS, which have then been modifed for ease of use.  
@@ -18,7 +18,6 @@ Fixed up configuration using:
 ``rm contents/OpenHPC:1.3:Factory/numactl/_link``  
 ``rm contents/OpenHPC:1.3:Factory/numpy-intel/_link``  
 ``for f in $(find contents -name _service); do sed -i -e 's/git@github.com:openhpc/http:\/\/github.com\/openhpc/g' $f; done``  
-``for f in $(find contents -name _service); do sed -i '/changesauthor/d' $f; done``  
 ``for f in $(find contents -name _service); do sed -i '/changesgenerate/a \\    <param name=\"changesauthor\">Admin<\/param>' $f; done``
 
 Removed constraint files (they only contain memory constraints, which always failed to resolve correctly)
