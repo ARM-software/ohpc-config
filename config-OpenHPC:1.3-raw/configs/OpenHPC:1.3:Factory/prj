@@ -9,7 +9,7 @@
     <disable/>
   </build>
   <repository name="SLE_12" rebuild="local">
-    <releasetarget project="OpenHPC:1.3:Update1:Factory" repository="SLE_12" trigger="manual"/>
+    <releasetarget project="deleted" repository="deleted" trigger="manual"/>
     <path project="OPA:10.2.0.0.158" repository="SLE_12_SP1"/>
     <path project="openSUSE.org:SUSE:SLE-12-SP2:GA" repository="standard"/>
     <path project="Licenses" repository="standard"/>
@@ -18,7 +18,7 @@
     <arch>aarch64</arch>
   </repository>
   <repository name="CentOS_7" rebuild="local">
-    <releasetarget project="OpenHPC:1.3:Update1:Factory" repository="CentOS_7" trigger="manual"/>
+    <releasetarget project="deleted" repository="deleted" trigger="manual"/>
     <path project="CentOS" repository="7.3"/>
     <path project="NonFree:PXSE:2017" repository="CentOS_7.2"/>
     <path project="EPEL7-deps" repository="standard"/>
