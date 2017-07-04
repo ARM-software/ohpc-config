@@ -16,7 +16,7 @@ permissions and limitations under the License.
 
 <link project='OpenHPC:1.3:Update1:Factory' package='trilinos-gnu-openmpi'>
 <patches>
-  <topadd>%define compiler_family gnu</topadd>
+  <topadd>%define compiler_family gnu7</topadd>
   <topadd>%define mpi_family impi</topadd>
 </patches>
 </link> 
