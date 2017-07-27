@@ -69,8 +69,8 @@ Configuration -> Architectures -> Tick "Aarch64" -> Update
 Whilst on a command line terminal on your OBS server
 
 Clone the obs-cloner repo  
-``$ git clone http://ds-gerrit.euhpc.arm.com:8008/hpc/openhpc/obs-cloner``  
-``$ cd obs-cloner``
+``$ git clone https://github.com/ARM-software/ohpc-config.git"``  
+``$ cd ohpc-config``
 
 (Optional) Setup username/password for obs command line tool  
 ``$ osc -A https://localhost ls``  
