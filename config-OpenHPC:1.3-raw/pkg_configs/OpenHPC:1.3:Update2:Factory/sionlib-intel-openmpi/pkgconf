@@ -1,0 +1,8 @@
+<package name="sionlib-intel-openmpi" project="OpenHPC:1.3:Update2:Factory">
+  <title/>
+  <description/>
+  <build>
+    <disable arch="x86_64"/>
+    <disable arch="aarch64"/>
+  </build>
+</package>
