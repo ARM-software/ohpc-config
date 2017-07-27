@@ -1,0 +1,43 @@
+Prefer: hwloc-ohpc
+
+Preinstall: lmod-ohpc
+Preinstall: findutils
+
+# PXSE 2017-U4
+%ifarch x86_64
+
+Runscripts: intel-mkl-common-196
+Order: intel-mkl-196:intel-compilers-devel-ohpc
+
+Preinstall: intel-ifort-l-ps-196
+Preinstall: intel-icc-l-all-196
+Preinstall: intel-comp-l-all-vars-196
+Preinstall: intel-icc-l-all-common-196
+Preinstall: intel-mkl-196
+Preinstall: intel-mkl-rt-196
+Preinstall: intel-mkl-common-196
+Preinstall: intel-mkl-common-c-196
+Preinstall: intel-mkl-ps-cluster-rt-196
+Preinstall: intel-mpi-psxe-056
+Preinstall: intel-mpi-rt-core-196
+Preinstall: intel-mpi-sdk-core-196
+
+Prefer: intel-openmp-l-ps-ss-bec-196
+Prefer: intel-mkl-rt-196
+Prefer: intel-openmp-l-all-196
+Prefer: intel-ifort-l-ps-196
+%endif
+
+
+%if 0%{?rhel_version} || 0%{?centos_version}
+Preinstall: perl-Exporter
+Preinstall: perl-Data-Dumper
+Preinstall: perl-Carp
+Preinstall: perl-Getopt-Long
+Preinstall: perl-constant
+Preinstall: perl-Digest-MD5
+Patterntype: comps
+%endif
+
+Macros:
+%OHPC_BUILD 1
