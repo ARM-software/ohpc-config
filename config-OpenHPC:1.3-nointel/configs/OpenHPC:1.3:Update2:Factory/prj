@@ -1,0 +1,19 @@
+<project name="OpenHPC:1.3:Update2:Factory">
+  <title>1.3.2 - Update #2 rolling development builds</title>
+  <description/>
+  <person userid="Admin" role="maintainer"/>
+  <repository name="SLE_12">
+    <path project="openSUSE.org:devel:languages:python" repository="SLE_12_SP2"/>
+    <path project="OpenHPC:1.3:Factory" repository="SLE_12"/>
+    <path project="openSUSE.org:SUSE:SLE-12-SP2:GA" repository="standard"/>
+    <arch>x86_64</arch>
+    <arch>aarch64</arch>
+  </repository>
+  <repository name="CentOS_7">
+    <path project="CentOS" repository="7.3"/>
+    <path project="EPEL7-deps" repository="standard"/>
+    <path project="OpenHPC:1.3:Factory" repository="CentOS_7"/>
+    <arch>aarch64</arch>
+    <arch>x86_64</arch>
+  </repository>
+</project>

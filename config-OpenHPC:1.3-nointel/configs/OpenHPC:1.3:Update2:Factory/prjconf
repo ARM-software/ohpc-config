@@ -1,0 +1,17 @@
+Prefer: hwloc-ohpc
+
+Preinstall: lmod-ohpc
+Preinstall: findutils
+
+%if 0%{?rhel_version} || 0%{?centos_version}
+Preinstall: perl-Exporter
+Preinstall: perl-Data-Dumper
+Preinstall: perl-Carp
+Preinstall: perl-Getopt-Long
+Preinstall: perl-constant
+Preinstall: perl-Digest-MD5
+Patterntype: comps
+%endif
+
+Macros:
+%OHPC_BUILD 1
