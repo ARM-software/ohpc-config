@@ -10,7 +10,7 @@ References to MYOBSSERVER should be replace with the full hostname of your OBS s
 Install OBS using of of the following options:
 
 #### 1. Install onto VM
-Download ISO from http://download.opensuse.org/repositories/OBS:/Server:/2.7/images/iso/obs-server.x86_64-2.7.4-Build2.57.install.iso  
+Download the latest 2.7.4 x86 ISO from http://download.opensuse.org/repositories/OBS:/Server:/2.7/images/iso/  
 Install onto machine/VM with at least 2 CPUs, 4 Gb of memory, 100Gb Disk  
 Image will automatically connect to DNS upon start-up. Hostname will be "linux.suse".  
 If your network automatically hands out new DNS leases, then the suggested method to change the hostname is to initially boot/install without network connected, edit /etc/hostname, then shutdown, connect networking and boot.
